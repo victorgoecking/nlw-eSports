@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import { MagnifyingGlassPlus } from "phosphor-react";
 
+import * as Dialog from '@radix-ui/react-dialog';
+
+
 import './styles/main.css';
 import logoImg from './assets/logo-nlw-esports.svg';
 import { GameBanner } from "./components/GameBanner";
 import { CreateAdBanner } from "./components/CreateAdBanner";
+import { CreateAdModal } from './components/CreateAdModal';
 
 interface Game {
   id: string;
@@ -46,8 +50,11 @@ function App() {
           )
         })}
       </div>
-
-      <CreateAdBanner />
+        <Dialog.Root>
+          <CreateAdBanner />
+          
+          <CreateAdModal />
+        </Dialog.Root>
     </div>
   )
 }
